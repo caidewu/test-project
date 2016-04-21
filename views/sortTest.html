@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div style="display: flex; justify-content: space-around;">
+    <p style="">
+        <a href=""><img src="http://image.huigoumai.com/20151205b2fdbaa3774441b9db35e3d1d9d10892?imageView2/2/w/375" width="100%" alt="" /></a>
+    </p>
+    <p style="">
+        <a href=""><img src="http://image.huigoumai.com/20151205b2fdbaa3774441b9db35e3d1d9d10892?imageView2/2/w/375" width="100%" alt="" /></a>
+    </p>
+</div>
+
+
+<!--<script src="../bower_components/jquery/dist/jquery.min.js"></script>-->
+<script src="../scripts/sort.js"></script>
+<script>
+    'use strict';
+    var arr =[3,1,7,8,5,4,2,6,0];
+//    var arr =[5,4,3,2,1];
+//    bubbleSort(arr,function(){
+//        console.log(arr);
+//    });
+//    selectSort(arr,function(){
+//        console.log(arr);
+//    });
+    console.log('arr:',arr);
+//    (function(){
+//        var aa =4;
+//        console.log('before invoked:',aa);
+//        function a(num){
+////            num[0] = 2;
+//        console.log(num === aa);
+//            console.log('function:',num);
+//        }
+//        a(aa);
+//        console.log('end invoked:',aa);
+//    })();
+    quickSort(arr,0,arr.length-1,function(){
+        console.log('quicksort:',arr);
+    });
+    console.log('quicksort:',arr);
+
+   console.log(sort([32,45,37,16,2,87]));//弹出“2,16,32,37,45,87”
+
+
+    var start = window.performance.now();
+    console.log('load time:',start);
+
+    var obj = {};
+    for (var i = 0; i < 100000; i++) {
+        obj[i] = {'test': i};
+    }
+    var created = window.performance.now();
+    console.log('created time:',created - start);
+    var key = Object.keys(obj);
+    var keyTime = window.performance.now();
+    console.log('key time:',keyTime - created);
+//    var index = $.inArray('5000',key);
+    var arrTime = window.performance.now();
+    console.log('inArray time:',arrTime - keyTime);
+</script>
+</body>
+</html>

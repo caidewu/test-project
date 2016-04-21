@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css"/>-->
+    <style type="text/css">
+
+        @keyframes haha {
+
+        }
+        .wrapper {
+            width:200px;
+            height:300px;
+            border: 3px solid #ccc;
+        }
+        .wrapper .content {
+            border: 3px solid #c9302c;
+            width:200px;
+            height:300px;
+            position: absolute;
+            opacity: 0;
+            -webkit-transition: all 1.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 1.5s;
+        }
+
+        #index1 {
+            text-align: center;
+            background-color: #00b3ee;
+
+        }
+
+        #index2 {
+            background-color: #3e8f3e;
+
+        }
+
+        .wrapper .current {
+            opacity: 1;
+
+        }
+        .delete { display: none; }
+
+        .center {
+            background-color: #00b3ee;
+            width: 300px;
+            height:300px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin: -150px 0 0 -150px;
+            padding:20px;
+            box-sizing: border-box;
+        }
+        .center .content {
+            background-color: #cccccc;
+            width: 100%;
+            height: 100%;
+            padding:30px;
+            box-sizing: border-box;
+            position: absolute;
+            top:0;
+            left:0;
+            margin:10px;
+            z-index:-1;
+        }
+        .center .content .title {
+            font-size:24px;
+
+        }
+        .ib {
+            display: inline-block;
+        }
+
+        .sp {
+            display: inline-block;
+            width:25%;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="content current" id="index1">index1</div>
+    <div class="content" id="index2">index2</div>
+</div>
+<button id="btn" type="button">改变</button>
+
+
+<ul id="items">
+    <li>List item 1 <span class="delete">DELETE</span></li>
+    <li>List item 2 <span class="delete">DELETE</span></li>
+</ul>
+
+<div style="display: flex; justify-content: center;  width: 100%;">
+    <div style="width: 25%; padding: 5px;">s似懂非懂是否</div>
+    <div style="width: 25%; padding: 5px;">非懂是否</div>
+    <div style="width: 25%; padding: 5px;">s似懂非懂是否</div>
+    <div style="width: 25%; padding: 5px;">s似懂非s似懂非懂是否懂是否</div>
+</div>
+
+
+<p><span class="sp">asdf</span><span class="sp">dfgh</span><span class="sp">hjkk</span><span class="sp">erterertertretert</span></p>
+
+
+<div><span class="ib">aa</span><span class="ib">ss</span><span class="ib">dd</span><span class="ib">ff</span></div>
+
+<script src="../lib/zepto/zepto.js"></script>
+<script>
+    var index1 =   $('#index1');
+    var index2 =    $('#index2');
+    $('#btn').click(function() {
+        if (index1.hasClass('current')) {
+            index1.removeClass('current');
+            index2.addClass('current');
+        } else {
+            index2.removeClass('current');
+            index1.addClass('current')
+        }
+
+    });
+
+
+    // show delete buttons on swipe
+    $('#items li').swipe(function(){
+        var that = this;
+        $('.delete').hide();
+        $('.delete', that).show(1500);
+
+
+    });
+
+    // delete row on tapping delete button
+    $('.delete').tap(function(){
+        $(this).parent('li').remove();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+ 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>异步编程 by 司徒正美</title>
+
+    <script>
+      var Queue = function(){
+        this.list = []
+      }
+      Queue.prototype = {
+        constructor:Queue,
+        queue:function(fn) {
+          this.list.push(fn)
+          return this;
+        },
+        dequeue:function(){
+          var fn = this.list.shift()||function(){};
+          fn.call(this)
+        }
+      }
+      window.onload = function(){
+        var el = document.getElementById("test");
+        var q = new Queue();
+        q.queue(function(){
+          var self = this;
+          el.innerHTML = 1
+          setTimeout(function(){
+            self.dequeue()
+          },1000);
+        }).queue(function(){
+          var self = this;
+          el.innerHTML = 2
+          setTimeout(function(){
+            self.dequeue()
+          },1000);
+        }).queue(function(){
+          var self = this;
+          el.innerHTML = 3
+          setTimeout(function(){
+            self.dequeue()
+          },1000);
+        }).dequeue()
+      }
+    </script>
+
+  </head>
+  <body>
+    <p id="test"></p>
+
+
+  </body>
+</html>
+

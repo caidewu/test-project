@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>列表</title>
+    <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+    <style>
+
+
+        @font-face {
+            font-family: Muiicons;
+            font-weight: 400;
+            font-style: normal;
+            src: url(../fonts/mui.ttf) format('truetype')
+        }
+
+        /*.mui-icon {*/
+            /*font-family: Muiicons;*/
+            /*font-size: 24px;*/
+            /*font-weight: 400;*/
+            /*font-style: normal;*/
+            /*line-height: 1;*/
+            /*display: inline-block;*/
+            /*text-decoration: none;*/
+            /*-webkit-font-smoothing: antialiased*/
+        /*}*/
+        body {
+            background-color: #efeff4;
+            font-family: 'Helvetica Neue',Helvetica,sans-serif;
+            font-size: 17px;
+            line-height: 21px;
+            color: #000;
+        }
+        a {
+            text-decoration: none;
+            color: #007aff;
+            background: 0 0;
+        }
+
+        .table-view {
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style: none;
+            background-color: #fff;
+        }
+
+        .table-view:before,.table-view:after {
+            position: absolute;
+            right: 0;
+            left: 0;
+            height: 1px;
+            content: '';
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            background-color: #c8c7cc;
+            top: -1px;
+        }
+
+
+        .table-view-cell {
+            position: relative;
+            overflow: hidden;
+            padding: 11px 15px;
+            -webkit-touch-callout: none;
+        }
+        .table-view-cell:after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 15px;
+            height: 1px;
+            content: '';
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            background-color: #c8c7cc;
+        }
+        .table-view-cell>a:not(.mui-btn) {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: -11px -15px;
+            padding: inherit;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: inherit;
+        }
+
+        .table-view-cell:last-child:after, .table-view-cell:last-child:before {
+            height: 0;
+        }
+
+        .navigate-right:after, .push-right:after {
+            right: 15px;
+            content: '\e583';
+        }
+        .navigate-right:after, .push-left:after, .push-right:after {
+            font-family: Muiicons;
+            font-size: inherit;
+            line-height: 1;
+            position: absolute;
+            top: 50%;
+            display: inline-block;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            text-decoration: none;
+            color: #bbb;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body>
+<ul class="table-view">
+    <li class="table-view-cell">
+        <a class="navigate-right">
+            Item 1
+        </a>
+    </li>
+    <li class="table-view-cell">
+        <a class="navigate-right">
+            Item 1
+        </a>
+    </li>
+    <li class="table-view-cell">
+        <a class="navigate-right">
+            Item 1
+        </a>
+    </li>
+
+</ul>
+</body>
+</html>

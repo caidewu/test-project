@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>css文字截断____dowhatyouwant</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-size: 12px;
+        }
+
+        .text-overflow {
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+            border-top: 4px solid red;
+            padding: 10px;
+            overflow: hidden;; /* 内容超出宽度时隐藏超出部分的内容 */
+            text-overflow: ellipsis;; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+            white-space: nowrap; /* 不换行 */
+        }
+    </style>
+</head>
+<body>
+<div class='text-overflow'>我来测试一下这个文字截断是不是真的有效果</div>
+</body>
+</html>

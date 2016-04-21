@@ -1,0 +1,65 @@
+/* reset */
+body, html, p { font-size: 100%; padding: 0; margin: 0;}
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.wrapper {
+    /* TODO: 临时处理*/
+    width: 375px;
+    height: 667px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.poster-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -75px 0 0 -50px;
+    width: 100px;
+    height:150px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .03);
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .03);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .03);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+/* 旋转 */
+.poster-wrapper .poster-transform {
+
+}
+
+.poster-wrapper .side {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    padding:5px;
+
+}
+
+.poster-wrapper .front-side {
+
+}
+
+.poster-wrapper .back-side {
+    display:none;
+}
+
+.poster-wrapper .back-side .desc {
+    font-size: 14px;
+    line-height: 1.2em;
+}
+
+.poster-wrapper .front-side .image img {
+    width: 100%;
+    height: 120px;
+}
+
+.poster-wrapper .front-side .caption {
+    font-size:16px;
+    text-align:center;
+    line-height: 20px;
+}

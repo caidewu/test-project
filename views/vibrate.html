@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vibrate test</title>
+</head>
+<body>
+<script>
+'use strict';
+navigator.vibrate = navigator.vibrate 
+                    || navigator.webkitVibrate 
+                    || navigator.mozVibrate 
+                    || navigator.msVibrate;
+if (navigator.vibrate) {
+    // 支持
+    navigator.vibrate(10000);
+}else{
+    alert('your device not support!');
+}
+
+</script>
+</body>
+</html>
