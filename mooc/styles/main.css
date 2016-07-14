@@ -1,0 +1,81 @@
+@charset "utf-8";
+/*border: solid 1px red;*/
+body {
+    font-size: 12px;
+    background: #F5F5F5;
+}
+ul {
+    margin: 0;
+}
+@font-face {
+    font-family: 'fontello';
+    src: url(../../fonts/right-dir.ttf) format('truetype');
+}
+.header {
+    border-bottom: 1px solid #DDDDDD;
+    height: 27px;
+    width: 100%;
+
+}
+
+.header .top-wrapper {
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+
+}
+.header .top-wrapper ul{
+    float: right;
+}
+
+.header .top-wrapper li {
+    list-style: none;
+    width: 70px;
+    float: left;
+    line-height: 27px;
+}
+
+.header .top-wrapper li:before {
+    content: '\e800';
+    font-family: fontello;
+    color: #8E8E8E;
+    padding-right: 5px;
+}
+a {
+    text-decoration: none;
+}
+.header .top-wrapper a:link, a:visited {
+    color: #8E8E8E;
+}
+
+.header .top-wrapper a:hover, a:active {
+    color: #C00;
+}
+
+.main {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.main .logo {
+    background: #FFFFFF;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.main .logo .logo-right {
+    height: 28px;
+    margin : auto 20px;
+    color: #8E8E8E;
+
+}
+.main .logo .logo-right img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.main .logo .logo-right span {
+    color: #c00;
+    font-family: "Microsoft Yahei", "微软雅黑";
+    font-size: 22px;
+    margin-left: 10px;
+}
