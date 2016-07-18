@@ -3,33 +3,36 @@
 body {
     font-size: 12px;
     background: #F5F5F5;
+    color: #8E8E8E;
+}
+
+div{
+    box-sizing: border-box;
 }
 ul {
     margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
 }
 @font-face {
     font-family: 'fontello';
     src: url(../../fonts/right-dir.ttf) format('truetype');
 }
-.header {
-    border-bottom: 1px solid #DDDDDD;
-    height: 27px;
-    width: 100%;
-
-}
 
 .header .top-wrapper {
+    border-bottom: 1px solid #DDDDDD;
+    height: 27px;
     width: 1000px;
-    height: 100%;
     margin: 0 auto;
-
 }
 .header .top-wrapper ul{
     float: right;
 }
 
 .header .top-wrapper li {
-    list-style: none;
     width: 70px;
     float: left;
     line-height: 27px;
@@ -44,11 +47,17 @@ ul {
 a {
     text-decoration: none;
 }
-.header .top-wrapper a:link, a:visited {
+
+a:link, a:visited {
     color: #8E8E8E;
 }
 
-.header .top-wrapper a:hover, a:active {
+a:hover, a:active {
+    color: #F00;
+}
+
+
+.header .top-wrapper a:hover, .header .top-wrapper a:active {
     color: #C00;
 }
 
@@ -76,6 +85,224 @@ a {
 .main .logo .logo-right span {
     color: #c00;
     font-family: "Microsoft Yahei", "微软雅黑";
+    vertical-align: sub;
     font-size: 22px;
     margin-left: 10px;
+}
+
+.main .nav-wrapper {
+    background-color: #766D66;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 3px;
+    line-height: 40px;
+}
+
+.main .nav-wrapper .left-nav {
+    width: 680px;
+    height: 100%;
+    float: left;
+}
+
+.main .nav-wrapper .left-nav li{
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+.main .nav-wrapper .left-nav a {
+
+    color: #fff;
+    font-family: "Microsoft Yahei", "微软雅黑";
+    font-size:16px;
+}
+
+.main .nav-wrapper .left-nav a:link,.main .nav-wrapper .left-nav a:visited {
+    color: #fff;
+}
+
+.main .nav-wrapper .left-nav a:hover,.main .nav-wrapper .left-nav a:active {
+    color: #FF0;
+}
+
+.main .nav-wrapper .right-nav {
+    float: right;
+}
+
+.main .nav-wrapper .right-nav input { /*此处可以优化一下*/
+    width: 190px;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 50px;
+    padding: 0 30px 0 5px;
+    color: #8E8E8E;;
+    background: url(../images/search.jpg) no-repeat right center;
+    background-color: #FFFFFF;
+}
+
+.main .banner-wrapper {
+    height: 320px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.main .box-wrapper {
+    height: 250px;
+    margin-top: 5px;
+}
+
+.box-wrapper .box {
+    background-color: #FFFFFF;
+    height: 100%;
+    float: left;
+    border: solid 2px #E9E9E9;
+}
+.box-wrapper .news {
+    width: 340px;
+
+}
+
+.box-wrapper .box .header{
+    border-bottom: solid 2px #E9E9E9;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 5px;
+}
+
+.box-wrapper .box .header .title{
+    float: left;
+    padding-left: 10px;
+}
+
+.box-wrapper .box .header .more{
+    float: right;
+}
+
+.box-wrapper .box .header a:hover, .box-wrapper .box .header a:active {
+    color: #8E8E8E;
+}
+
+.box-wrapper .news .preview{
+    height: 80px;
+    margin-top: 10px;
+}
+
+.box-wrapper .preview img {
+    float: left;
+    margin: 0 5px;
+}
+.box-wrapper .news .preview img {
+    width: 113px;
+    height: 77px;
+}
+
+.box-wrapper .preview div {
+    float: left;
+    line-height: 1.5em;
+}
+.box-wrapper .content .preview a {
+    color: #c00;
+}
+.news .news-list {
+    clear: both;
+    /*border: solid 1px red;*/
+}
+.news .news-list li {
+    margin: 8px;
+    border-bottom: 1px dotted #8E8E8E;
+    background: url(../images/list.jpg) no-repeat;
+    height: 17px;
+    line-height: 17px;
+    padding-left: 8px;
+}
+
+.news .news-list .news-date {
+    float: right;
+}
+
+.news .news-list .title {
+    display: inline-block;
+    width: 249px;
+    text-overflow: ellipsis;/*这就是省略号喽*/
+    overflow: hidden;/*设置超过的隐藏*/
+    white-space: nowrap;/*设置不折行*/
+}
+
+.box-wrapper .product {
+    width: 420px;
+    margin-left: 5px;
+}
+
+.box-wrapper .product .preview {
+    margin-top: 10px;
+    height: 110px;
+}
+.box-wrapper .product .preview img {
+    width: 158px;
+    height: 106px;
+}
+
+.box-wrapper .product .preview div {
+    width: 240px;
+}
+
+.product .product-tag { /* 可以用flex优化 */
+    clear: both;
+    width: 350px;
+    height: 30px;
+    margin: 30px auto;
+    background: url(../images/product_type_bg.jpg) no-repeat;
+}
+.product .product-tag li {
+    float: left;
+    line-height: 2em;
+    margin: 0 15px;
+}
+
+.box-wrapper .media {
+    width: 230px;
+    margin-left: 5px;
+}
+
+.box-wrapper .media img {
+    margin: 5px 0;
+}
+
+/*版权信息*/
+.footer {
+    background-color: #E8E8E8;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.footer>ul>li {
+    float: left;
+    width: 200px;
+    font-size: 18px;
+    font-family: "Microsoft Yahei", "微软雅黑";
+    line-height: 30px;
+    text-align: center;
+    background: linear-gradient(left, gray,white);
+}
+
+.footer>ul>li:before {
+    content: '';
+    display: block;
+    box-sizing: content-box;
+    position: relative;
+    left: 200px;
+    top: 140px;
+    margin-top: -100px;
+    width: 2px;
+    height: 120px;
+    background: -webkit-linear-gradient(left, #c2c2c2, white);
+    background: linear-gradient(left, #c2c2c2, white);
+    /*background:#c2c2c2;*/
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+}
+
+.footer>ul>li>ul>li{
+   /*clear: both;*/
+    font-size: 14px;
 }

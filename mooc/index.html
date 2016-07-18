@@ -32,40 +32,59 @@
                 <li><a href="javascript:;">人才招聘</a></li>
             </ul>
         </div>
+        <div class="right-nav">
+            <form action="">
+                <input type="text" name="search">
+            </form>
+        </div>
     </div>
     <div class="banner-wrapper" id="banner">
         <div class="pic">
             <ul>
-                <li><a href="javascript:;"><img src="images/ad.jpg" alt=""></a></li>
-                <li><a href="javascript:;"><img src="images/ad2.jpg" alt=""></a></li>
-                <li><a href="javascript:;"><img src="images/ad3.jpg" alt=""></a></li>
-                <li><a href="javascript:;"><img src="images/ad4.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner2.jpg" thumb="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner3.jpg" thumb="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner4.jpg" thumb="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner2.jpg" thumb="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner3.jpg" thumb="" alt=""></a></li>
+                <li><a href="javascript:;"><img src="images/banner4.jpg" thumb="" alt=""></a></li>
             </ul>
         </div>
     </div>
 
     <div class="box-wrapper">
-        <div class="news">
-            <div class="header"><span>新闻中心</span><span><a href="javascript:;">More>></a></span></div>
+        <div class="news box">
+            <div class="header"><span class="title">新闻中心</span><span class="more"><a href="javascript:;">More&gt;&gt;</a></span></div>
             <div class="content">
                 <div class="preview">
-                    
+                    <img src="images/news.jpg" alt="">
+                    <div>
+                        <span><a href="#">520 慕女神喊你来表白！</a></span>
+                        <p>活动时间：5月20日—5月25日<br>
+                            获奖公布时间：5月26日<br>
+                            <a href="news.html">Learn More&gt;&gt;</a>
+                        </p>
+                    </div>
+
                 </div>
                 <div class="news-list">
                     <ul>
-                        <li><a href="#" class="title">【慕客访谈 用户篇】“有为屌丝”在路上</a><span class="news-date">2016-07-12</span></li>
-                        <li><a href="#" class="title">【慕客访谈 用户篇】“有为屌丝”在路上</a><span class="news-date">2016-07-12</span></li>
+                        <li><a href="#" class="title">【慕客访谈 用户篇】“有为屌丝”有为屌丝在有为屌丝在在路上</a><span class="news-date">2016-07-12</span></li>
+                        <li><a href="#" class="title">【慕客访谈 用户有】为屌户有为屌丝在路上丝在路上</a><span class="news-date">2016-07-12</span></li>
                         <li><a href="#" class="title">【慕客访谈 用户篇】“有为屌丝”在路上</a><span class="news-date">2016-07-12</span></li>
                         <li><a href="#" class="title">【慕客访谈 用户篇】“有为屌丝”在路上</a><span class="news-date">2016-07-12</span></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="product">
-            <div class="header"><span>课程中心</span><span><a href="javascript:;">More>></a></span></div>
+        <div class="product box">
+            <div class="header"><span class="title">课程中心</span><span class="more"><a href="javascript:;">More&gt;&gt;</a></span></div>
             <div class="content">
                 <div class="preview">
-
+                    <img src="images/css.jpg" alt="">
+                    <div>
+                        <span><a href="#">CSS圆角进化论</a></span>
+                        <p> CSS圆角的实现，经历了三大发展阶段：背景图片方式、CSS2.0+HTML标签模拟、CSS3.0圆角属性）。本案例详细讲解每一种的实现方式，并对实现的优缺点进行对比分析。</p>
+                    </div>
                 </div>
             </div>
             <div class="product-tag">
@@ -77,10 +96,12 @@
                 </ul>
             </div>
         </div>
-        <div class="media">
-            <div class="header"><span>媒体聚焦</span><span><a href="javascript:;">More>></a></span></div>
-            <div class="video"></div>
-            <div class="ad"><img src="images/app.jpg" alt="慕课网App"></div>
+        <div class="media box">
+            <div class="header"><span class="title">媒体聚焦</span><span class="more"><a href="javascript:;">More&gt;&gt;</a></span></div>
+            <div class="video">
+                <embed src="http://player.youku.com/player.php/sid/XNjkzMDE5MTUy/v.swf" allowFullScreen="true" quality="high" width="225" height="140" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+            </div>
+            <div class="app"><img src="images/app.jpg" alt="慕课网App"></div>
         </div>
     </div>
 </div>
@@ -124,6 +145,18 @@
         </li>
     </ul>
 </div>
-
+<script type="text/javascript" src="scripts/setHomeSetFav.js"></script>
+<script type="text/javascript" src="scripts/myfocus-2.0.1.min.js" charset="utf-8"></script><!--引入myFocus库-->
+<script type="text/javascript">
+    myFocus.set({
+        id:'banner',//焦点图盒子ID
+        pattern:'mF_fancy',//风格应用的名称
+        time:3000,//切换时间间隔(秒)
+        trigger:'click',//触发切换模式:'click'(点击)/'mouseover'(悬停)
+        width:1000,//设置图片区域宽度(像素)
+        height:310,//设置图片区域高度(像素)
+        txtHeight:'default'//文字层高度设置(像素),'default'为默认高度，0为隐藏
+    });
+</script>
 </body>
 </html>
