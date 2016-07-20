@@ -1,1 +1,103 @@
 @charset "utf-8";
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EFEFF4;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+@font-face {
+    font-family: 'mui';
+    font-style: normal;
+    src: url(../../fonts/mui.ttf) format('truetype');
+}
+.hide {
+    display: none !important;
+}
+.header {
+    position: fixed;
+    left: 0 ;
+    top: 0;
+    width: 100%;
+    background-color: #F7F7F7;
+    height: 44px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 6px #ccc;
+    z-index: 10;
+}
+
+.header .btn {
+    width: 44px;
+}
+
+.header .title {
+    line-height: 44px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.header .right a:before {
+    font-family: 'mui';
+    color: #999999;
+    font-size: 24px;
+    content: '\e534';
+    display: block;
+    line-height: 44px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+.main {
+    margin-top: 60px;
+}
+
+.main .list {
+    background-color: #FFFFFF;
+    border-top: 1px solid #DCDBE1;
+}
+.main .list li {
+    position: relative;
+    height: 43px;
+    padding: 11px 65px 11px 15px;
+}
+.main .list li:after {
+    content: '';
+    height: 1px;
+    position: absolute;
+    left: 15px;
+    bottom:0;
+    right:0;
+    background-color: #E4E3E6;
+}
+
+.main .list li a {
+    color: #000;
+    font-size: 18px;
+}
+
+.main .list li a:after {
+    content: '\e583';
+    font-family: 'mui';
+    position: absolute;
+    right: 10px;
+    color: #C3C3C3;
+
+}
+
+
