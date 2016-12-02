@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<label id="playbox" class="">
+    <audio id="audio" loop="loop">
+        <source src="http://obyehkwyo.bkt.clouddn.com/YANNI%20-%20%2813%29Marching%20Season.mp3" type="audio/mpeg">
+    </audio>
+</label>
+
+<button id="play">开始</button>
+
+<button id="pause">暂停</button>
+
+<button id="muted">静音</button>
+
+<button id="stop">停止</button>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+
+<script>
+    (function() {
+        var audio = $('#audio')[0];
+        console.log(audio);
+        $(function() {
+//           console.log('play!!!');
+//           audio.play();
+            audio.controls = true;
+
+        });
+
+        $('#play').on('click', function() {
+           audio.play();
+        });
+
+        $('#muted').on('click', function() {
+            audio.muted = !audio.muted;
+        });
+
+
+        $('#pause').on('click', function() {
+            audio.pause();
+        });
+
+    })();
+
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 12 * (clientWidth / 320) + 'px';
+                }
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+
+</body>
+</html>

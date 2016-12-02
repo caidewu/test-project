@@ -1,0 +1,35 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EFEFF4;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+@font-face {
+    font-family: 'mui';
+    font-style: normal;
+    src: url(../../fonts/mui.ttf) format('truetype');
+}
+.hide {
+    display: none !important;
+}
+
+button.btn {
+    border: 1px solid #007aff;
+    color: #007aff;
+    border-radius: 3px;
+}

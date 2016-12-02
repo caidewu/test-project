@@ -3,12 +3,16 @@
   <head>
   <meta charset="UTF-8" />
   <style type="text/css">
-  		.link{
-  			background: #f00;
-  			display: block;
-  			height:100px;
-  			width:100px;
-  		}
+	  .link {
+		  background: #f00;
+		  display: block;
+		  height: 100px;
+		  width: 100px;
+	  }
+
+	  .aaa {
+
+	  }
   </style>
   </head>
   <body>
@@ -25,6 +29,7 @@
 	       <div style="width:128px;height:64px;background:#997788;float:left;"></div>
 	    </div>
 	</div>
+  <ul id="test_ul"></ul>
 	<script type="text/javascript">
 		var span = document.getElementById('foo');
 		var link = document.getElementById('link');
@@ -40,6 +45,22 @@
 		link.onclick = function(e) {
 			alert('aaaaa');
 		}
+
+		var li = '';
+		for (var i= 0; i< 10000;i++) {
+			li += '<li class="aaa">aaaaa</li>'
+		}
+		var ul = document.getElementById('test_ul');
+		ul.innerHTML = li;
+
+		ul.addEventListener('click',  function(event) {
+			var target = event.target || window.target;
+			console.log(target);
+			if(target.nodeName && target.nodeName.toLowerCase() == "li"){
+				var index = Array.prototype.indexOf.call(target.parentElement.children,target);
+				alert(index);
+			}
+		})
 	</script>
   </body>
 </html>

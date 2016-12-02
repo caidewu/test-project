@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Example</title>
+    <style>
+        *, *:after, *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .main {
+            border: 1px solid black;
+            width: 300px;
+            height: 50px;
+        }
+
+        .scroll {
+            overflow: auto;
+        }
+
+        .close-btn {
+            display: block;
+            width: 21px;
+            height: 21px;
+            border-radius: 10px;
+            border: 1px solid;
+        }
+
+        .close-btn:before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 1px;
+            background-color: #000;
+            margin: auto;
+            position: relative;
+            top: 9px;
+        }
+
+        .close-btn:after {
+            content: '';
+            display: block;
+            height: 15px;
+            width: 1px;
+            background-color: #000;
+            margin: auto;
+            position: relative;
+            top: 1px;
+        }
+
+        .row {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .wrap {
+            border: 1px solid;
+            font-size: 0;
+        }
+
+        .box {
+            position: relative;
+            width: 750px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .item {
+            height: 100px;
+            width: 400px;
+            color: #000;
+            background-color: red;
+            font-size: 14px;
+        }
+
+        .right {
+            position: absolute;
+            right: 0;
+            background-color: green;
+
+        }
+        .child {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 30px;
+            height: 30px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="main scroll">Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces.
+    Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core
+    library is focused on the view layer only, and is very easy to pick up and integrate with other libraries or
+    existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page
+    Applications when used in combination with modern tooling and supporting libraries.
+</div>
+<p class="main scroll">
+    中国共产党，简称中共，成立于1921年7月，1949年10月至今为代表工人阶级领导工农联盟和统一战线，在中国大陆实行人民民主专政的中华人民共和国唯一执政党。中国工人阶级的先锋队，中国社会主义事业的领导核心，中国各族人民利益的代表者。
+</p>
+
+
+<img src="images/yeoman.png" alt="">
+<div>
+    <i class="close-btn"></i>
+</div>
+
+
+<div class="wrap">
+    <div class="row">wakaka</div>
+    <div class="row">问问</div>
+    <div class="row">康沃尔</div>
+    <div class="row">sss卢萨卡的风景</div>
+</div>
+
+<div class="wrap box">
+    <div class="item">1111 <div class="child">child</div></div>
+    <div class="item right">222</div>
+</div>
+</body>
+</html>
