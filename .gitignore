@@ -13,3 +13,4 @@ Thumbs.db
 /.idea/
 /.project
 /.git/
+node_modules/
