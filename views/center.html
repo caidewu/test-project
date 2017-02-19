@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <style>
+        .wrapper {
+            position: relative;
+            height:500px;
+            width: 500px;
+            border: 1px solid #c0c0c0;
+            box-sizing: border-box;
+        }
+
+        .wrapper-line {
+            text-align: center;
+            width: 500px;
+            border: 1px solid #c0c0c0;
+        }
+        .text-line {
+            height: 3em;
+            line-height: 3em;
+
+        }
+
+        .wrapper-multi-line {
+            display:table-cell;
+            *height:1.14em;
+            *font-size:10em;
+            vertical-align:middle;
+        }
+
+        .multi-line {
+            display:inline-block;
+            *font-size:0.1em;
+            vertical-align:middle;
+        }
+
+        .wrapper-table-cell {
+            position: relative;
+            display:table-cell;
+            vertical-align:middle;
+            text-align:center;
+            width: 500px;
+            height: 500px;
+            *display: block;
+            *font-size: 438px;
+            border:1px solid #c0c0c0;
+        }
+
+        .table-cell {
+            vertical-align:middle;
+        }
+
+        .wrapper-table-cell:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 500px;
+            background-color: red;
+            /*margin-top: 100px;*/
+            top: 0px;
+
+            transform: translate(0, 250px) rotate(45deg) ;
+            border-bottom: red 1px solid;
+        }
+
+        .line {
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            border-bottom: 1px solid red;
+        }
+
+        /* 图片居中 : 内联标签包裹 */
+        .wrapper-text-space {
+            width: 500px;
+            height: 500px;
+            text-align:center;
+            border:1px solid #c0c0c0;
+        }
+
+        .wrapper-text-space span {
+            display:inline-block;
+            height: 100%;
+            vertical-align:middle;
+        }
+        /*a,a:visited{*/
+            /*text-decoration:none;*/
+            /*color: #000;*/
+            /*cursor: default;*/
+        /*}*/
+
+        .text-space {
+            vertical-align:middle;
+        }
+
+        /* 图片居中 : line-height */
+        .wrapper-before {
+            height: 500px;
+            width:500px;
+            line-height: 500px;
+            *font-size:438px;
+            text-align: center;
+            border:1px solid #c0c0c0;
+        }
+
+        /*.wrapper-before:before {*/
+            /*content: '';*/
+            /*vertical-align: middle;*/
+        /*}*/
+
+        .before {
+            vertical-align:middle;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .wrapper-background img {
+            display: block;
+            height: 500px;
+            width:500px;
+            background-repeat: no-repeat;
+            background-position: center;
+            border:1px solid #c0c0c0;
+        }
+
+        .wrapper-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 500px;
+            border:1px solid #c0c0c0;
+        }
+
+        /*.content {
+            position: absolute;
+            width: 50px;
+            height: 100px;
+            border: 1px solid;
+            left:0;
+            top:0;
+        }*/
+
+        .wrapper:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 100px;
+            border: 1px solid;
+            left:0;
+            top:0;
+        }
+
+        .wrapper-transform {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border:1px solid #c0c0c0;
+        }
+
+        .wrapper-transform img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .wrapper-transparent-img {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            border:1px solid #c0c0c0;
+        }
+
+        .wrapper-transparent-img .framework {
+            width: 1px;
+            height: 100%;
+            vertical-align: middle;
+        }
+        .wrapper-transparent-img img {
+            vertical-align: middle;
+            margin-left: -1px;
+        }
+
+        .vertical-line {
+            position: absolute;
+            left: 158px;
+            top:0;
+            width: 1px;
+            height: 10000px;
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<h3>单行文本居中</h3>
+<div class="wrapper-line">
+    <span class="text-line">拉伸度空间发生的发生的发生大法师</span>
+
+</div>
+
+<h3>多行文本垂直居中</h3>
+<div class="wrapper wrapper-multi-line">
+    <span class="multi-line">
+        水电费水电费等法律思考的方式飞机 <br>
+        水电费 s等法律思考的
+    </span>
+</div>
+
+<h3>图片居中：table-cell</h3>
+
+<div class="wrapper-table-cell">
+    <img class="table-cell" src="../images/avatar.jpg" alt="">
+</div>
+
+<p>老的水平垂直居中方法 大多都是利用文字空间来做文章，如1，2，3，方法4是通过背景图居中，移动端最常用还是最后两种吧</p>
+<h3>图片居中1：1px高透明图片撑起高度 + vertical-align: middle</h3>
+<div class="wrapper-transparent-img"><!--img与img之间不要有空格-->
+    <img class="framework" src="../images/transparent.gif" alt=""><img src="../images/avatar.jpg" alt="">
+</div>
+
+<h3>图片居中2：inline-block标签撑起高度（原理同1px透明图片）</h3>
+<div class="wrapper-text-space">
+    <span></span><img class="text-space" src="../images/avatar.jpg" alt="">
+</div>
+
+
+<h3>图片居中3：line-height + vertical-align: middle</h3>
+<div class="wrapper-before">
+    <img class="before" src="../images/avatar.jpg" alt="">
+</div>
+
+<h3>图片居中4：透明图片 + 背景position居中 </h3>
+<p>这个方法的前提是容器要大于图片，因为IE8不支持background-size</p>
+<div class="wrapper-background">
+    <img src="../images/transparent.gif" style="background-image: url(../images/yeoman.png); background-size: 200px; " alt="">
+</div>
+
+<h3>图片居中5：flex (和IE说再见)</h3>
+<div class="wrapper-flex">
+    <img src="../images/avatar.jpg" alt="">
+</div>
+
+<h3>图片居中6：absolute + transform(IE9以上)</h3>
+<div class="wrapper-transform">
+    <img src="../images/avatar.jpg" alt="">
+</div>
+
+
+
+<!--<div class="wrapper">
+    <div class="content"></div>
+</div>-->
+<div class="vertical-line"></div>
+</body>
+</html>

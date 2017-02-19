@@ -21,11 +21,8 @@
             width:200px;
             height:300px;
             position: absolute;
+            left:200px;
             opacity: 0;
-            -webkit-transition: all 1.5s;
-            -moz-transition: all 0.5s;
-            -ms-transition: all 0.5s;
-            -o-transition: all 0.5s;
             transition: all 1.5s;
         }
 
@@ -42,7 +39,7 @@
 
         .wrapper .current {
             opacity: 1;
-
+            left:0;
         }
         .delete { display: none; }
 
@@ -82,15 +79,39 @@
             width:25%;
             height: 30px;
         }
+
+        .content1 {
+            background-color: #00b3ee;
+            width:200px;
+            height:300px;
+            position: absolute;
+            transform: translate3d(200px, 0, 0);
+            opacity: 0;
+            transition: all 1.5s;
+        }
+
+        .current1 {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+
+
     </style>
 </head>
 <body>
+<h3>使用position left: 200px 实现</h3>
 <div class="wrapper">
     <div class="content current" id="index1">index1</div>
     <div class="content" id="index2">index2</div>
 </div>
 <button id="btn" type="button">改变</button>
 
+<h3>使用transform: translate3d(200px)实现 </h3>
+<div class="wrapper">
+    <div class="content1 current1">index1</div>
+    <div class="content1">index2</div>
+</div>
+<button id="btn1" type="button">改变</button>
 
 <ul id="items">
     <li>List item 1 <span class="delete">DELETE</span></li>
@@ -112,22 +133,30 @@
 
 <script src="../lib/zepto/zepto.js"></script>
 <script>
-    var index1 =   $('#index1');
-    var index2 =    $('#index2');
     $('#btn').click(function() {
-        if (index1.hasClass('current')) {
-            index1.removeClass('current');
-            index2.addClass('current');
-        } else {
-            index2.removeClass('current');
-            index1.addClass('current')
-        }
+        $('.content').each(function() {
+            if ($(this).hasClass('current')) {
+                $(this).removeClass('current');
+            } else {
+                $(this).addClass('current');
+            }
+        })
+    });
 
+    $('#btn1').click(function() {
+        $('.content1').each(function() {
+            if ($(this).hasClass('current1')) {
+                $(this).removeClass('current1');
+            } else {
+                $(this).addClass('current1');
+            }
+        })
     });
 
 
     // show delete buttons on swipe
     $('#items li').swipe(function(){
+        console.log('invoked');
         var that = this;
         $('.delete').hide();
         $('.delete', that).show(1500);
