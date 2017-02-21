@@ -1,11 +1,10 @@
 var gulp = require('gulp');
+var del = require('del');
 // var $ = require('gulp-load-plugins')();
 var fs = require('fs');
 var through2 = require('through2');
 var gulpPrefixer = require('./tools/prefixer');
 var source = require('vinyl-source-stream');
-var marked = require('gulp-marked');
-var buffer = require('gulp-buffer');
 var crypto = require('crypto');
 var i = 0;
 var map = {};
@@ -38,7 +37,7 @@ gulp.task('default', ['read'],function() {
         }))
         // .pipe(fs.createWriteStream('./tools/out.js'));
         .pipe(gulp.dest('./tools/modified-files'));
-   
+
     // fs.createReadStream('README.md')
     //     .pipe(source('README.md'))
     //     .pipe(marked())
@@ -70,3 +69,13 @@ gulp.task('hash', function() {
 function version(data) {
     return data.replace(/__VERSION__/, '2.3.3');
 }
+
+gulp.task('clean', del.bind(null, ['dist']));
+gulp.task('dist', function() {
+    return gulp.src([
+        './**/*',
+        '!gulpfile.js',
+        '!package.json',
+        '!README.md'
+    ]).pipe(gulp.dest('./dist'));
+});

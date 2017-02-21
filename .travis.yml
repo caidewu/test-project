@@ -31,8 +31,22 @@ before_install:
 install:
 - npm install
 
+before_script:
+  - npm i -g gulp-cli
+
 # 部署的命令
 script:
+  - gulp dist
+
+after_script:
+  - cd dist
+  - git init
+  - git config user.name 'caidewu'
+  - git config user.email 'caidewu555@gmail.com'
+  - git add .
+  - git commit -m 'update files'
+  - git remote add origin git@git.coding.net:caidewu/test-project.git
+  - git push -u origin master
 
 cache:
   directories:
