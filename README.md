@@ -1,5 +1,8 @@
 # test-project
 
+[![travis status](https://travis-ci.org/caidewu/test-project.svg?branch=master)](https://travis-ci.org/caidewu/test-project)
+
+
 ## Demo合集
 
 这个项目主要用于存放平时练习的demo或测试代码
