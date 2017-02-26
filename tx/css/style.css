@@ -7,6 +7,9 @@ div {
     box-sizing: border-box;
 }
 
+a, button {
+    outline: none;
+}
 .nav {
     position: fixed;
     top: 0;
@@ -211,8 +214,6 @@ div {
     border-radius: 5px;
     color: #5b5b5b;
     background-color: #fdfdfd;
-    outline: none;
-
 }
 
 .btn:active {
