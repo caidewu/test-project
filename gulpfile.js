@@ -79,3 +79,17 @@ gulp.task('dist', function() {
         '!README.md'
     ]).pipe(gulp.dest('./dist'));
 });
+
+gulp.task('autoprefixer', function () {
+    var postcss      = require('gulp-postcss');
+    var sourcemaps   = require('gulp-sourcemaps');
+    var autoprefixer = require('autoprefixer');
+
+    return gulp.src('./tx/css/*.css')
+        .pipe(sourcemaps.init())
+        .pipe(postcss([ autoprefixer({
+            browsers: ['last 2 versions', 'Android >= 4.0']
+        }) ]))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('./tx/dist/css/'));
+});
