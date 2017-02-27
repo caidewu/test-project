@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端布局训练</title>
+    <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+    <style>
+        button,fieldset,img {
+            border: 0
+        }
+
+        a,ins {
+            text-decoration: none
+        }
+
+        :focus,body {
+            outline: 0;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        article,aside,blockquote,body,button,code,dd,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul {
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+            line-height: 1.5;
+            font-size: 16px;
+            color: #000;
+            background-color: #f2f2f2;
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: 100%
+        }
+
+        h1,h2,h3,h4,h5,h6 {
+            font-weight: 400
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        caption,th {
+            text-align: left
+        }
+
+        li {
+            list-style: none
+        }
+
+        del {
+            text-decoration: line-through
+        }
+
+        button,input,optgroup,option,select,textarea {
+            font-family: inherit;
+            font-size: inherit;
+            font-style: inherit;
+            font-weight: inherit;
+            outline: 0
+        }
+
+        button {
+            -webkit-appearance: none;
+            background: 0 0
+        }
+
+        a {
+            -webkit-touch-callout: none;
+            color: #ffb400
+        }
+
+        em,i {
+            font-style: normal
+        }
+
+        input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration,input[type=search]::-webkit-search-results-button,input[type=search]::-webkit-search-results-decoration {
+            display: none
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        /* end of reset */
+
+        .nowrap {
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+        }
+
+        .header {
+            padding: 0 15px;
+            height: 46px;
+            line-height: 46px;
+            font-size: 17px;
+            background-color: #fff;
+        }
+        .header .desc {
+            margin-left: 10px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .header:after {
+            content: '>';
+            position: absolute;
+            color: #c7c7c7;
+            right: 15px;
+        }
+        .content ul {
+            overflow: hidden;
+        }
+
+        .content ul li {
+            position: relative;
+            float: left;
+            width: 33.3333%;
+        }
+
+        .col-2 {
+            background-color: #fff;
+            margin-bottom: 50px;
+        }
+
+
+        .cover-list {
+            overflow: hidden;
+        }
+
+        .cover-list li {
+            position: relative;
+            width: 50%;
+            float: left;
+        }
+
+        .cover-list li:nth-child(odd) {
+            background-position: right top;
+            background-image: -webkit-gradient(linear,left top,right top,color-stop(.5,transparent),color-stop(.5,#e9e9e9));
+            background-repeat: repeat-y;
+            -webkit-background-size: 1px 100%
+        }
+
+        li h4 {
+            padding: 6px 10px 33px 10px;
+        }
+
+        li p {
+            position: absolute;
+            left: 0;
+            bottom: 12px;
+            box-sizing: border-box;
+            padding: 0 6px 0 10px;
+            font-size: 14px;
+            color: #bbb;
+
+        }
+
+        .cover-list .img {
+            position: relative;
+            padding-top: 67.73%;
+            margin-right: 1px;
+        }
+        .img span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background-size: 100% 100%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="header">
+            <span class="title">热门分类</span>
+            <span class="desc">啦啦啦啦啦绿</span>
+        </div>
+        <div class="col-2">
+            <ul class="cover-list">
+                <li>
+                    <div class="img">
+                        <span style="background-image:url('../images/cover2.jpg')"></span>
+                    </div>
+                    <h4>哈哈哈第三方</h4>
+                    <p class="nowrap">描述的方式打发打描述的方式打发打发发</p>
+                </li>
+                <li>
+                    <div class="img">
+                        <span style="background-image:url('../images/cover3.jpg')"></span>
+                    </div>
+                    <h4>哈哈哈第三方</h4>
+                    <p class="nowrap">描述的方式打发打发</p>
+                </li>
+                <li>
+                    <div class="img">
+                        <span style="background-image:url('../images/cover3.jpg')"></span>
+                    </div>
+                    <h4>哈哈哈第三方</h4>
+                    <p class="nowrap">描述的方式打发打发</p>
+                </li>
+                <li>
+                    <div class="img">
+                        <span style="background-image:url('../tx/img/banner-left.png')"></span>
+                    </div>
+                    <h4>哈哈哈第三方</h4>
+                    <p class="nowrap">描述的方式打发打发</p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <div class="header">
+            <span class="title">热门分类</span>
+            <span class="desc">啦啦啦啦啦绿</span>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <!--<img src="../images/cover2.jpg" alt="">-->
+                    <span style="background-image:url('../images/cover2.jpg')"></span>
+                    <div class="type">国漫精品</div>
+                </li>
+                <!--<li><img src="../images/cover3.jpg" alt="">-->
+                <li>
+                    <span style="background-image:url('../images/cover2.jpg')"></span>
+                    <div class="type">人气日漫</div>
+                </li>
+                <li>
+                    <!--<img src="../images/cover4.jpg" alt="">-->
+                    <span style="background-image:url('../images/cover2.jpg')"></span>
+
+                    <div class="type">新番精选</div>
+                </li>
+                <li>
+                    <!--<img src="../images/cover2.jpg" alt="">-->
+                    <span style="background-image:url('../images/cover2.jpg')"></span>
+                    <div class="type">治愈系列</div>
+                </li>
+                <li>
+                    <!--<img src="../images/cover3.jpg" alt="">-->
+                    <span style="background-image:url('../images/cover2.jpg')"></span>
+                    <div class="type">生活搞笑</div>
+                </li>
+                <li>
+                    <!--<img src="../images/cover2.jpg" alt="">-->
+                    <span style="background-image:url('../images/cover2.jpg')"></span>
+                    <div class="type">青春校园</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>
