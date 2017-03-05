@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="一个真实的网络问答社区，帮助你寻找答案，分享知识。">
+    <title>知乎 - 与世界分享你的知识、经验和见解</title>
+    <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="../lib/reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="main-wrapper">
+    <div class="content-wrapper">
+        <div class="logo-wrapper">
+            <h1 class="hide-text bg-logo">知乎</h1>
+            <h2 class="slogan">与世界分享你的知识、经验和见解</h2>
+            <img src="./img/icon@3x.png" alt="" style="display: none">
+        </div>
+        <div class="form-wrapper">
+            <div class="nav-wrapper">
+                <div class="nav">
+                    <a href="#" class="">注册</a>
+                    <a href="#" class="active">登录</a>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="signup hide">
+                <div class="input-wrap">
+                    <div class="input-cell">
+                        <input type="text" placeholder="姓名">
+                    </div>
+                    <div class="input-cell">
+                        <input type="text" placeholder="手机号（仅支持中国大陆）">
+                    </div>
+                    <div class="input-cell">
+                        <input type="password" placeholder="密码（不少于6位）">
+                    </div>
+                </div>
+                <div class="button-wrapper">
+                    <button class="btn btn-default">注册知乎</button>
+                </div>
+                <p class="signup-protocol">点击「注册」按钮，即代表你同意<a href="#">《知乎协议》</a></p>
+            </div>
+            <div class="signin ">
+                <div class="input-wrap hide">
+                    <div class="input-cell">
+                        <input type="text" placeholder="手机号或邮箱">
+                    </div>
+                    <div class="input-cell">
+                        <input type="password" placeholder="密码">
+                    </div>
+                    <div class="input-cell">
+                        <input class="v-code" type="text" placeholder="验证码">
+                        <div class="v-code-wrap"><img src="" alt="验证码"></div>
+                    </div>
+                </div>
+                <div class="input-wrap ">
+                    <div class="input-cell">
+                        <input type="text" placeholder="手机号（仅支持中国大陆）">
+                    </div>
+                    <div class="input-cell">
+                        <input class="v-code" type="text" placeholder="验证码">
+                        <div class="v-code-wrap"><img src="" alt="验证码"></div>
+                    </div>
+                    <div class="input-cell">
+                        <input class="v-code" type="text" placeholder="短信验证码">
+                        <div class="v-code-wrap"><button>获取验证码</button></div>
+                    </div>
+
+                </div>
+                <div class="button-wrapper">
+                    <button class="btn btn-default">登录</button>
+                </div>
+                <div class="sign-type clearfi hide">
+                    <a href="#">手机验证码登录</a>
+                    <button>无法登录？</button>
+                </div>
+                <div class="sign-type clearfix "><a href="#">密码登录（手机号或邮箱）</a></div>
+
+                <div class="sns-signin-wrapper">
+                    <span>社交账号登录</span>
+                    <div class="sns-list">
+                        <a href="#" title="微博登录"><i class="ico sprite-icon-weibo"></i></a>
+                        <a href="#" title="QQ登录"><i class="ico sprite-icon-qq"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">使用机构账户登录</a><span class="dot">.</span><a href="#">联系我们</a>
+    </div>
+    <div class="particles-wrapper" id="particles-js"></div>
+</div>
+
+<script src="../lib/particles.js"></script>
+<script>
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 20, density: {
+                    enable: true,
+                    value_area: 1E3
+                }
+            },
+            color: {
+                value: "#e1e1e1"},
+            shape: {
+                type: "circle",
+                stroke: {width: 0, color: "#000000"},
+                polygon: {
+                    nb_sides: 5
+                },
+                image: {
+                    src: "img/github.svg",
+                    width: 100,
+                    height: 100
+                }
+            },
+            opacity: {
+                value: .5,
+                random: false,
+                anim: {enable: false, speed: 1, opacity_min: .1, sync: false}},
+            size: {
+                value: 15,
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 180, size_min: .1, sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 650,
+                color: "#cfcfcf",
+                opacity: .26,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: {enable: false, rotateX: 600, rotateY: 1200}
+            }
+        }, interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {enable: false, mode: "repulse"},
+                onclick: {enable: false, mode: "push"},
+                resize: true
+            },
+            modes: {
+                grab: {distance: 400, line_linked: {opacity: 1}},
+                bubble: {distance: 400, size: 40, duration: 2, opacity: 8, speed: 3},
+                repulse: {distance: 200, duration: .4},
+                push: {particles_nb: 4},
+                remove: {particles_nb: 2}
+            }
+        }, retina_detect: true
+    });
+</script>
+</body>
+</html>

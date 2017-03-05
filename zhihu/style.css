@@ -1,0 +1,282 @@
+body {
+    background: #f7fafc;
+    color: #555;
+    font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+html,body {
+    height: 100%;
+}
+
+a {
+    color: #0f88eb;
+    font-size: 14px;
+}
+
+.bg-logo {
+    background: url('./img/logo@2x.png') no-repeat;
+    background-size: 100%;
+
+}
+
+.btn {
+    text-align: center;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #0f88eb;
+}
+
+.btn-default {
+    height: 40px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.hide-text {
+    /*font: 0/0 a;*/
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.dot {
+    line-height: 42px;
+    color: #aebdc9;
+    margin: 0 5px;
+}
+
+.clearfix {
+    *zoom:1}
+
+.clearfix:before,.clearfix:after {
+    display: table;
+    content: ""
+}
+
+.clearfix:after {
+    clear: both
+}
+
+[class*=sprite-icon-] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ico {
+    background-image: url('img/sprites@2x.png');
+    background-repeat: no-repeat;
+    background-size: 76px 62px;
+    width: 20px;
+    height: 18px;
+}
+.sprite-icon-weibo {
+    background-position: 0 -44px;
+}
+.sprite-icon-qq {
+    background-position: -56px 0;
+}
+
+/* -------------------------------------------------- */
+
+.main-wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+.content-wrapper {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.particles-wrapper {
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+    z-index: -1;
+}
+
+.logo-wrapper {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.logo-wrapper h1 {
+    width: 96px;
+    margin: 0 auto;
+}
+
+.logo-wrapper h2 {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.form-wrapper {
+    position: relative;
+    padding-bottom: 100px;
+
+}
+
+.nav-wrapper {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.nav {
+    position: relative;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+
+}
+
+.nav .active {
+    color: #0f88eb;
+    opacity: 1;
+}
+
+.nav a {
+    float: left;
+    width: 4em;
+    color: #555;
+    opacity: .7;
+    font-size: 18px;
+}
+
+.nav .line {
+    position: absolute;
+    bottom: 0;
+    margin: 0 .8em;
+    width: 2.4em;
+    height: 2px;
+    background-color: #0f88eb;
+}
+
+.nav .active:nth-child(2) ~ .line {
+    left: 50%;
+}
+
+
+.input-wrap {
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.input-wrap .input-cell {
+    position: relative;
+    box-sizing: border-box;
+    padding: 1em .8em;
+}
+.input-cell input {
+    width: 100%;
+    border: none;
+}
+.input-cell .v-code {
+    width: 150px;
+}
+
+.input-wrap .input-cell+.input-cell {
+    border-top: 1px solid #e8e8e8;
+}
+
+.v-code-wrap img,.v-code-wrap button {
+    position: absolute;
+    right: 0;
+    top:0;
+    padding: 5px;
+    width: 100px;
+    height: 38px;
+    text-align: center;
+}
+
+.v-code-wrap button {
+    height: 100%;
+    color: #5ca5eb;
+}
+.v-code-wrap button:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 40px;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-20px);
+    background-color: #e9e9e9;
+    /*background-image: -webkit-gradient(linear,left top,right top,color-stop(.5,transparent),color-stop(.5,#e9e9e9));*/
+
+}
+
+.button-wrapper {
+    margin-top: 22px;
+}
+
+.signup-protocol {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 20px;
+    color: #999;
+}
+.signup-protocol a {
+   color: #698ebf;
+}
+
+.sign-type {
+    margin-top: 22px;
+    position: relative;
+    clear: both;
+}
+
+.sign-type a {
+    float: left;
+}
+
+.sign-type button {
+    float: right;
+    font-size: 14px;
+    color: #555;
+}
+
+.sns-signin-wrapper {
+    margin-top: 22px;
+}
+
+.sns-signin-wrapper .sns-list {
+    display: inline-block;
+}
+
+.sns-signin-wrapper span {
+    font-size: 14px;
+    color: #787878;
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+.sns-list a {
+    margin-right: 25px;
+    opacity: .7;
+}
+
+.footer {
+    line-height: 42px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+.footer a {
+    color: #aebdc9;
+    font-size: 12px;
+}
+
+
+
