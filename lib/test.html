@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>打开控制台查看</h1>
+<script src="setImmediate.js"></script>
+<script>
+    setTimeout(function() {
+        setTimeout(function() {
+           console.log('inner 1');
+        },0);
+        setImmediate(function() {
+            console.log(11);
+        });
+        console.log(0);
+    },0);
+
+</script>
+</body>
+</html>

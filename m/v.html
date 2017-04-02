@@ -83,11 +83,24 @@
             display: none
         }
 
-        div {
-            box-sizing: border-box;
+        /* end of reset */
+
+        .clearfix {
+            *zoom:1}
+
+        .clearfix:before,.clearfix:after {
+            display: table;
+            content: ""
         }
 
-        /* end of reset */
+        .clearfix:after {
+            clear: both
+        }
+
+        .wrapper {
+            margin-bottom: 50px;
+            background-color: #fff;
+        }
 
         .nowrap {
             max-width: 100%;
@@ -127,12 +140,14 @@
 
         .col-2 {
             background-color: #fff;
-            margin-bottom: 50px;
+            /*margin-bottom: 50px;*/
         }
 
 
         .cover-list {
+            margin-right: -1px;
             overflow: hidden;
+            margin-bottom: -1px;
         }
 
         .cover-list li {
@@ -142,17 +157,17 @@
         }
 
         .cover-list li:nth-child(odd) {
-            background-position: right top;
+            background-position: right bottom;
             background-image: -webkit-gradient(linear,left top,right top,color-stop(.5,transparent),color-stop(.5,#e9e9e9));
-            background-repeat: repeat-y;
-            -webkit-background-size: 1px 100%
+            background-repeat: no-repeat;
+            -webkit-background-size: 1px 63px;
         }
 
-        li h4 {
+        .cover-list li h4 {
             padding: 6px 10px 33px 10px;
         }
 
-        li p {
+        .cover-list li p {
             position: absolute;
             left: 0;
             bottom: 12px;
@@ -179,10 +194,218 @@
         }
 
 
+        .test {
+            padding-top: 10%;
+            border: 1px solid red;
+            background-image:url('../images/cover2.jpg');
+            /*background-size: */
+        }
+
+        .col-2-new {
+            overflow: hidden;
+        }
+
+        .col-2-new li {
+            float: left;
+            width: 50%;
+        }
+
+        .col-2-new .img {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.3%;
+        }
+        .col-2-new .img img {
+            position: absolute;
+            max-width: 100%;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            margin: auto;
+
+        }
+
+        .col-2-flex {
+            display: flex;
+
+        }
+
+        .col-2-flex .item {
+            /*flex-grow: 1;*/
+            width: 50%;
+            /*flex-basis: 50%;*/
+        }
+
+        .col-2-flex .item img {
+            position: absolute;
+            max-width: 100%;
+
+            /* 希望撑满容器用下面这个*/
+            /*width: 100%;*/
+
+            /* 水平垂直居中 */
+            /*top: 0;*/
+            /*bottom: 0;*/
+            /*left: 0;*/
+            /*right: 0;*/
+            /*margin: auto;*/
+
+            /* 方案二 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .col-2-flex .img {
+            position: relative;
+            padding-top: 56.3%;
+            overflow: hidden;
+        }
+
+        .wrapper-center {
+            position: relative;
+            /*padding-top: 100%;*/
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .wrapper-center img {
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 450px;
+            height:300px;
+            margin: auto;
+        }
+
+        .nav {
+            display: inline-block;
+        }
+
+        .nav a{
+            float: left;
+            width: 4em;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        [class*=sprite-index-] {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .sprite-index,[class*=sprite-index-] {
+            background-image: url('../zhihu/img/sprites@2x.png');
+            background-repeat: no-repeat;
+            background-size: 76px 62px;
+            width: 20px;
+            height: 18px;
+        }
+        .sprite-index-icon-weibo {
+            background-position: 0 -44px;
+        }
+        .sprite-index-icon-qq {
+            background-position: -56px 0;
+        }
+
+        .social-signup-wrapper span{
+            font-size: 14px;
+            color: #787878;
+            cursor: pointer;
+            margin-right: 25px;
+        }
+        .social-signup-wrapper .sns-buttons {
+            display: inline-block;
+        }
+
+        .sns-buttons a {
+            display: inline-block;
+        }
+
+
+
 
     </style>
 </head>
 <body>
+
+<div class="wrapper">
+    <div class="test"></div>
+</div>
+
+
+<div class="wrapper center">
+    <div class="nav">
+        <a href="#">登录</a>
+        <a href="#">注册</a>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="social-signup-wrapper" data-za-module="SNSSignIn">
+        <span class="name">社交帐号登录</span>
+        <div class="sns-buttons">
+            <a title="微信登录" class="js-bindwechat" href="#"><i class="sprite-index-icon-wechat"></i></a>
+            <a title="微博登录" class="js-bindweibo" href="#"><i class="sprite-index-icon-weibo"></i></a>
+            <a title="QQ 登录" class="js-bindqq" href="#"><i class="sprite-index-icon-qq"></i></a>
+        </div>
+
+    </div>
+</div>
+
+<div class="wrapper-center">
+    <img src="../images/cover2.jpg" alt="">
+</div>
+
+    <div class="col-2-flex">
+        <div class="left item">
+            <div class="img">
+            <img src="../images/cover2.jpg" alt="">
+            </div>
+            <p>提示大家看法</p>
+            <p>提示大家看法水电费水电费</p>
+        </div>
+        <div class="right item">
+            <div class="img">
+            <img src="../tx/img/banner-left.png" alt="">
+            </div>
+            <p>提示大家看法</p>
+            <p>提示大家看法水电费水电费</p>
+        </div>
+    </div>
+
+
+
+    <div class="wrapper">
+        <div class="header">
+            <span class="title">热门分类</span>
+            <span class="desc">啦啦啦啦啦绿</span>
+        </div>
+        <div class="col-2-new">
+            <ul>
+                <li>
+                    <div class="img">
+                        <img src="../images/cover2.jpg" alt="">
+                    </div>
+                    <p class="nowrap">描述的方式打发打发</p>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="../tx/img/banner-left.png" alt="">
+                    </div>
+                    <p class="nowrap">描述的方式打发打发</p>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <div class="wrapper">
         <div class="header">

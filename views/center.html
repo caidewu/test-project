@@ -199,6 +199,24 @@
         }
 
 
+        .wrapper-margin-absolute {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border:1px solid #c0c0c0;
+
+        }
+        /* 这个方法width和height设置的值如果大于容器的，将会失效 */
+        .wrapper-margin-absolute img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            margin: auto;
+            /*width: 100%;*/
+            bottom: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -256,6 +274,10 @@
 </div>
 
 
+<h3>图片居中7：pc端IE8以上</h3>
+<div class="wrapper-margin-absolute">
+    <img src="../images/avatar.jpg" alt="">
+</div>
 
 <!--<div class="wrapper">
     <div class="content"></div>

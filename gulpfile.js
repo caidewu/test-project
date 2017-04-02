@@ -93,3 +93,61 @@ gulp.task('autoprefixer', function () {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./tx/dist/css/'));
 });
+
+var concat = require('gulp-concat');
+var usemin = require('gulp-usemin');
+var uglify = require('gulp-uglify');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
+var minifyHtml = require('gulp-minify-html');
+var rev = require('gulp-rev');  // 文件名加言(防缓存)
+var minifyCss = require('gulp-minify-css');
+var runSequence = require('run-sequence');
+var rename = require("gulp-rename");
+
+gulp.task('usemin', function() {
+    return gulp.src('tx/index.html')
+        .pipe(usemin({
+            css: [minifyCss(), 'concat', rev()]
+            //html: [minifyHtml({empty: true})],
+            // js: [uglify(), rev()]
+        }))
+        .pipe(gulp.dest('tx/dist/'));
+});
+
+gulp.task('imagemin', function () {
+    return gulp.src('tx/img/*.{png,jpg,jpeg,gif,webp,svg}')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('tx/dist/img/'));
+});
+
+gulp.task('clean:tx', del.bind(null, ['tx/dist']));
+
+
+gulp.task('build:tx', ['clean:tx'], function(cb) {
+    runSequence(
+        ['usemin', 'imagemin'],
+        cb);
+});
+
+gulp.task("updateVersion", function() {
+    return gulp.src('./package.json')
+        .pipe(through2.obj(function(file, enc, cb) {
+            let ret = {};
+            ret.version = JSON.parse(file.contents.toString()).version;
+            console.log(ret);
+            file.contents = Buffer(JSON.stringify(ret));
+            cb(null, file);
+        }))
+        .pipe(rename(function (path) {
+            // path.dirname += "/ciao";
+            path.basename = "version";
+            // path.extname = ".md"
+        }))
+        .pipe(gulp.dest('./'));
+
+});

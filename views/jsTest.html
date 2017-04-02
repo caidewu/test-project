@@ -16,16 +16,24 @@
   </style>
   </head>
   <body>
+
+  <input type="text" id="testText">
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <span>很好的啊</span>
   <a class="link" id="link" href="http://www.baidu.com">
   	<span style="width:50px; height:30px;" id="foo">haha</span>
   </a>
 
-    <div style="width:300px;height:64px;overflow:hidden;"> 
-	    <div style="width:640px;">       
-	        <div style="width:128px;height:64px;background:pink;float:left;"></div>        
-	        <div style="width:128px;height:64px;background:yellow;float:left;"></div>            
-	         <div style="width:128px;height:64px;background:#234566;float:left;"></div>        
-	        <div style="width:128px;height:64px;background:#453782;float:left;"></div>        
+    <div style="width:300px;height:64px;overflow:hidden;">
+	    <div style="width:640px;">
+	        <div style="width:128px;height:64px;background:pink;float:left;"></div>
+	        <div style="width:128px;height:64px;background:yellow;float:left;"></div>
+	         <div style="width:128px;height:64px;background:#234566;float:left;"></div>
+	        <div style="width:128px;height:64px;background:#453782;float:left;"></div>
 	       <div style="width:128px;height:64px;background:#997788;float:left;"></div>
 	    </div>
 	</div>
@@ -61,6 +69,63 @@
 				alert(index);
 			}
 		})
-	</script>
+
+// ------------------------------ postMessage ------------------------------- //
+
+
+        window.addEventListener("message", receiveMessage, false);
+        var MESSAGE_PREFIX = 'my.setImmediate'+ Math.random();
+		function isStartWith(str, preStr) {
+		    return typeof str === 'string' && str.slice(0, preStr.length) === preStr;
+        }
+
+        function receiveMessage(event) {
+           if (event.source === window && isStartWith(event.data, MESSAGE_PREFIX)) {
+               console.timeEnd('postMessage');
+               console.log(event.data);
+           }
+        }
+
+        window.postMessage(MESSAGE_PREFIX+ 'caidewu', '*');
+
+        setTimeout(function() {
+            console.timeEnd('time444')
+
+            console.log('setTimeout444')
+        },200);
+		setTimeout(function() {
+            console.timeEnd('time')
+		    console.log('setTimeout')
+        },0);
+
+		requestAnimationFrame(function(timestamp) {
+		    console.log('request', timestamp);
+        });
+
+        console.log('main');
+        console.time('time');
+
+        console.time('time444');
+        console.time('postMessage');
+        //        var step = 1000000, arr = [];
+//        while(step--) {arr.push(step)}
+//        console.log(arr);
+
+        document.querySelector('#testText').addEventListener('input', handleInput);
+        document.querySelector('#testText').addEventListener('change', handleChange);
+        document.querySelector('#testText').addEventListener('keydown', function(e) {console.log('keydown', e)});
+        document.querySelector('#testText').addEventListener('keypress', function(e) {console.log('keypress', e)});
+        document.querySelector('#testText').addEventListener('keyup', function(e) {console.log('keyup', e)});
+        function handleChange(e){
+          console.log('change',e);
+        }
+
+
+        function handleInput(e) {
+          console.log('input',e);
+
+        };
+
+    </script>
   </body>
 </html>

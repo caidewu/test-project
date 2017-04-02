@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style-d77c73bfd2.css"/>
+</head>
+<body>
+<div class="main-wrapper">
+    <div class="nav">
+        <div class="item  icon-role">角色</div>
+        <div class="item icon-casual">休闲</div>
+        <div class="item icon-single">单机</div>
+        <div class="item icon-chess">棋牌</div>
+        <div class="item active icon-action">动作</div>
+        <div class="item icon-shoot">射击</div>
+        <div class="line"></div>
+    </div>
+    <div class="banner-wrapper">
+        <a href="javascript:;">
+            <img src="img/banner-left.png" alt="">
+            <div class="text">
+                <p>企鹅电竞杯竞技大礼</p>
+                <span class="name">王者荣耀</span>
+            </div>
+        </a>
+        <a href="javascript:;">
+            <img src="img/banner-right.png" alt="">
+            <div class="text">
+                <p>连续签到领取888金币</p>
+                <span class="name">火影忍者</span>
+            </div>
+        </a>
+    </div>
+    <div class="game-list">
+        <a href="javascript:;" class="cell">
+            <img src="img/ico1.png" alt="ico">
+            <div class="text-wrapper">
+                <p>纪念碑谷</p>
+                <span class="desc">艺术品级的解密游戏</span>
+            </div>
+            <button class="btn">下载</button>
+        </a>
+        <a href="javascript:;" class="cell">
+            <img src="img/ico2.png" alt="ico">
+            <div class="text-wrapper">
+                <p>头脑特工队:泡泡乐</p>
+                <span class="desc">迪士尼满分泡泡龙</span>
+            </div>
+            <button class="btn">下载</button>
+        </a>
+        <a href="javascript:;" class="cell">
+            <img src="img/ico3.png" alt="ico">
+            <div class="text-wrapper">
+                <p>城堡突袭2</p>
+                <span class="desc">年度塔防 不得不玩</span>
+            </div>
+            <button class="btn">下载</button>
+        </a>
+        <a href="javascript:;" class="cell">
+            <img src="img/ico4.png" alt="ico">
+            <div class="text-wrapper">
+                <p>无尽吞噬</p>
+                <span class="desc">优雅的吃掉你</span>
+            </div>
+            <button class="btn">下载</button>
+        </a>
+        <a href="javascript:;" class="cell">
+            <img src="img/ico5.png" alt="ico">
+            <div class="text-wrapper">
+                <p>TwoDots:冒险之旅</p>
+                <span class="desc">玩的完全停不下来</span>
+            </div>
+            <button class="btn">下载</button>
+        </a>
+
+    </div>
+</div>
+<script>
+    // REM等比适配多分辨率 设计稿以iphone6 75为准
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 50 * (clientWidth / 375) + 'px';
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</body>
+</html>

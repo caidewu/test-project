@@ -1,37 +1,215 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<style type="text/css">
-#div1, #div2
-{float:left; width:100px; height:100px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
-</style>
-<script type="text/javascript">
-function allowDrop(ev)
-{
-ev.preventDefault();
-}
+    <style type="text/css">
+        #div1, #div2 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
 
-function drag(ev)
-{
-ev.dataTransfer.setData("divId",ev.target.id);
-}
+        .wrapper {
+            margin-left: 200px;
+            width: 500px;
+            height:300px;
+            border: 1px solid;
+            overflow-x: scroll;
+        }
 
-function drop(ev)
-{
-ev.preventDefault();
-var id=ev.dataTransfer.getData("divId");
-ev.target.appendChild(document.getElementById(id));
-}
-</script>
+        .content {
+            position: relative;
+            width: 1000px;
+            height: 200px;
+        }
+
+        .task {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 30px;
+            background: yellow;
+        }
+
+        .task-content {
+            position: relative;
+        }
+
+        .task-content .right-button {
+            position: absolute;
+            right: 5px;
+            top:5px;
+            width:20px;
+            height:20px;
+            background: greenyellow;
+        }
+
+        #box{ margin:20px auto; position:relative; width:400px; height:400px; background:#ccc; border:1px solid #333; postion:relative; }
+        #dragBox{ width:50px; height:50px;  text-align:center; line-height: 50px;position: absolute; background:blue; cursor:move; font-size:12px; color:#fff;}
+    </style>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop()">
-	<div draggable="true" ondragstart="drag(event)" id="drag1" style="border: 1px solid #cccccc; margin:5px; padding:5px;">
-		<img src="avatar.jpg"  width="100%" height="100%" />
-	</div>
-  </div>
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop()"></div>
+<div class="wrapper">
+    <div class="content">
+        <div>sfd收到了发的发生法律的说法sfd收到了发的发生法律的说法sfd收到了发的发生法律的说法sfd收到了发的发生法律的说法sfd收到了发的发生法律的说法sfd收到了发的发生法律的说法sfd收到了发的发生法律的说法sfd收到了发的发生法律的说法</div>
+        <div class="task" id="task">
+            <div class="task-content">
+                <div class="left-button" id="left"></div>
+                <div class="right-button" id="right"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div id="box">
+    <div id="dragBox">拖我</div>
+</div>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop()">
+    <div draggable="true" ondragstart="drag(event)" id="drag1"
+         style="border: 1px solid #cccccc; margin:5px; padding:5px;">
+        <img src="../images/avatar.jpg" width="100" height="100"/>
+    </div>
+</div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop()"></div>
+<script type="text/javascript">
+    var startMouseX = null,
+    startDown = false,
+    startDrag = false;
+    $(function() {
+      $('#right').on('mousedown', function(e) {
+        e.stopPropagation();
+        startMouseX = e.pageX;
+        startDown = true;
+      })
+
+      $('#right').on('mouseover', function(e) {
+        if (startDown && e.target.id === 'right'){
+          console.log('current', e.currentTarget);
+          console.log('target', e.target);
+            console.log('=====');
+            startDrag = true;
+
+
+            var offsetMouseX = e.pageX -startMouseX;
+
+            var width = $('#task').width() + offsetMouseX;
+            if (width < 50) width = 50;
+
+            $('#task').width(width);
+          }
+
+
+      })
+
+      $('#right').on('mouseup', function(e) {
+        console.log('mouseup')
+        e.stopPropagation();
+        startDown = false;
+        startDrag = false;
+        startMouseX = null;
+      });
+
+
+    });
+
+    // ==============================
+
+    var VVG = {};  //命名空间
+    VVG.DOM = {
+      $: function(id) { //创建方便的选择符
+        return typeof id == "string" ? document.getElementById(id) : id;
+      },
+      bindEvent: function(node, type, func) { //事件绑定方法
+        if (node.addEventListener) {
+          node.addEventListener(type, func, false);
+        } else if (node.attachEvent) {
+          node.attachEvent("on" + type, func);
+        } else {
+          node["on" + type] = func;
+        }
+      },
+      getEvent: function(event) { //获取事件
+        return event ? event : window.event;
+      },
+      getTarget: function(event) { //获取事件目标
+        return event.target || event.srcElement;
+      }
+    }
+
+    var DragDrop =  function() { //新建一个返回对象的函数
+      var box = VVG.DOM.$("box"); //获取外围BOX
+      var dragBox = VVG.DOM.$("dragBox");//获取需要拖动的BOX
+      var dragging = null; //初始化对象
+      function drag(event) { //事件执行函数
+        event = VVG.DOM.getEvent(event);
+        var target = VVG.DOM.getTarget(event);
+        switch (event.type) {//判断事件类型
+          case "mousedown":
+            if(target.id == "dragBox"){ //当事件对象的ID等于要拖动的BOX的ID时
+              dragging = target; //赋值到拖动目标
+            }
+            break;
+          case "mousemove":
+            if(dragging){ //当有拖动目标时执行
+              sTop = document.documentElement.scrollTop || document.body.scrollTop; //当有滚动条的时候卷去页面的高度
+              dragging.style.left = (event.clientX - box.offsetLeft - dragBox.offsetWidth/2) + "px";
+              dragging.style.top = (event.clientY + sTop - box.offsetTop  - dragBox.offsetHeight/2 ) + "px";
+              var left = parseInt(dragging.style.left);
+              var top = parseInt(dragging.style.top);
+              //console.log("left:"+left+"-----top:"+top + "-------sTop:"+sTop);
+              // 比较坐标是否超出外围的BOX
+              if(left < 0){
+                dragging.style.left = 0 +"px";
+              }
+              if(top < 0){
+                dragging.style.top = 0+"px";
+              }
+              if(left > box.offsetWidth - dragBox.offsetWidth){
+                dragging.style.left = (box.offsetWidth - dragBox.offsetWidth - 2 )+"px";
+              }
+              if(top >  box.offsetHeight - dragBox.offsetHeight){
+                dragging.style.top =( box.offsetHeight - dragBox.offsetHeight  - 2 )+"px";
+              }
+            }
+            break;
+          case "mouseup":
+            // 清空拖动目标
+            dragging = null;
+            break;
+        }
+      };
+      return {
+        dragStart: function() {
+          // 绑定事件
+          VVG.DOM.bindEvent(document, "mousedown", drag);
+          VVG.DOM.bindEvent(document, "mousemove", drag);
+          VVG.DOM.bindEvent(document, "mouseup", drag);
+        }
+      }
+    }();
+    DragDrop.dragStart();
+
+// =================================
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("divId", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var id = ev.dataTransfer.getData("divId");
+    ev.target.appendChild(document.getElementById(id));
+  }
+</script>
 </body>
 </html>

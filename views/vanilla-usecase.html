@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原生JS DOM操作案例</title>
+    <style>
+
+        .center {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .parent {
+            width: 300px;
+            height: 800px;
+            border: 2px solid #c0c0c0;
+        }
+
+        .current {
+            width: 250px;
+            height: 400px;
+            border: 1px solid red;
+            background: greenyellow;
+        }
+
+        .children {
+            margin: 5px;
+            width: 200px;
+            height: 100px;
+            background-color: #00b3ee;
+            border: 2px solid #c0c0c0 ;
+        }
+
+        .add-item {
+            width: 200px;
+            height: 50px;
+            background-color: yellow;
+            color: red;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<span>收到货水电费</span>
+    <div class="parent center">
+        <div class="current center" id="current">current
+            <div class="children"></div>
+            <div class="children"></div>
+        </div>
+    </div>
+<b>1</b><b>2</b>
+<script src="../node_modules/zepto/dist/zepto.js"></script>
+    <script>
+
+        function createTextNode(text) {
+            return  document.createTextNode(text);
+        }
+
+
+
+        var current = document.getElementById('current');
+        var elm = document.createElement('div');
+        elm.setAttribute('class','add-item');
+
+        var before = elm.cloneNode(false),
+            after = elm.cloneNode(false);
+        before.appendChild(createTextNode('before'));
+        after.appendChild(createTextNode('after'));
+
+//        这些老方法性能都不佳
+//        current.parentNode.insertBefore(before, current);// 要插入的节点， 相对于哪个节点之前
+//        current.insertBefore(before.cloneNode(true), current.firstChild);
+//        // current.prepend(elm.cloneNode(true));  //这个是jQuery like 方法，还不能用，兼容性问题
+//        current.parentNode.appendChild(after);
+//        current.appendChild(after.cloneNode(true));
+
+        // 推荐使用
+        current.insertAdjacentHTML('beforebegin', '<div class="add-item">before</div>');
+        current.insertAdjacentHTML('afterbegin', '<div class="add-item">before</div>');
+        current.insertAdjacentHTML('beforeend', '<div class="add-item">after</div>');
+        current.insertAdjacentHTML('afterend', '<div class="add-item">after</div>');
+
+    </script>
+
+</body>
+</html>

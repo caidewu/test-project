@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-wrapper {
+            display: flex;
+        }
+        .header {
+            background-color: #00b3ee;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .content {
+            margin: 5px;
+            height: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .main {
+            /*margin-bottom: 50px;*/
+        }
+
+        .animate {
+            transition: all .5s;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #00b3ee;
+        }
+
+        .end {
+            position: fixed;
+            top: 100%;
+        }
+
+        .end img {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+        <!--<div class="header">Header</div>-->
+        <div class="main" id="main">
+            <div class="content">content</div>
+            <div class="content">content</div>
+            <div class="content">content</div>
+            <div class="content">content</div>
+            <div class="content">content</div>
+            <div class="content">content</div>
+            <div class="content">content</div>
+            <div class="content">content</div>
+        </div>
+        <div class="end" id="end"><img src="../images/end.png" alt=""></div>
+
+        <!--<div class="footer">Footer</div>-->
+    <script src="../node_modules/zepto/dist/zepto.js"></script>
+    <script>
+//        $('body').on('touchmove', function (event) {
+//            event.preventDefault();
+//        });
+
+        var _startPosition,
+            _isTouchGround,
+            _offset,
+            _main = $('#main'),
+            _end = $('#end');
+
+        var _scrollEvent = null;
+
+        $(window).scroll(function (e) {
+            _scrollEvent = e;
+        });
+
+        setInterval(function() {
+            if ( _scrollEvent ) {
+//                var e = _scrollEvent;
+                 _scrollEvent = null;
+                console.log($(window).scrollTop());
+            }
+        }, 250);
+
+        _main.on('touchstart', function(e) {
+            e.stopPropagation();
+            _startPosition = e.changedTouches[0].pageY;
+//            console.log('start' + e.changedTouches[0].pageY);
+            _isTouchGround = $(window).scrollTop() +  $(window).height() - 5 >= _main.height();
+        });
+
+        _main.on('touchmove', function(e) {
+            e.stopPropagation();
+
+            if (_startPosition && e.changedTouches[0].pageY < _startPosition && _isTouchGround) {
+                _offset = e.changedTouches[0].pageY - _startPosition;
+
+                if (_offset < -100) {
+                    _offset = -100;
+                }
+                e.preventDefault();
+                setTimeout(function() {
+                    translateY(_main, _offset);
+                    translateY(_end, _offset);
+                });
+
+
+            }
+
+        });
+        _main.on('touchend', function(e) {
+//            console.log('end' + e.changedTouches[0].pageY);
+            if (_isTouchGround) {
+                _startPosition = null;
+//            _main.css('transition', '');
+                _main.addClass('animate');
+                _end.addClass('animate');
+                _main.attr('style',null);
+                _end.attr('style',null);
+                setTimeout(function() {
+                    _main.removeClass('animate');
+                    _end.removeClass('animate');
+                }, 500);
+            }
+        });
+
+
+        function translateY(context, length) {
+            context.css('transform','translateY('+ length + 'px)');
+        }
+    </script>
+</body>
+</html>
