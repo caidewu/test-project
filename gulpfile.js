@@ -133,21 +133,3 @@ gulp.task('build:tx', ['clean:tx'], function(cb) {
         ['usemin', 'imagemin'],
         cb);
 });
-
-gulp.task("updateVersion", function() {
-    return gulp.src('./package.json')
-        .pipe(through2.obj(function(file, enc, cb) {
-            let ret = {};
-            ret.version = JSON.parse(file.contents.toString()).version;
-            console.log(ret);
-            file.contents = Buffer(JSON.stringify(ret));
-            cb(null, file);
-        }))
-        .pipe(rename(function (path) {
-            // path.dirname += "/ciao";
-            path.basename = "version";
-            // path.extname = ".md"
-        }))
-        .pipe(gulp.dest('./'));
-
-});
