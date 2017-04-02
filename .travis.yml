@@ -29,14 +29,14 @@ before_install:
 
 # 安装依赖
 install:
-- npm install
+- yarn install
 
-before_script:
-  - npm i -g gulp-cli
+# before_script:
+#   - npm i -g gulp-cli
 
 # 部署的命令
 script:
-  - gulp dist
+  - yarn build
 
 after_script:
   - cd dist
